@@ -1,6 +1,6 @@
 import './style.css';
 
-const HOST = 'localhost';
+const HOST = process.env.HOST || null;
 
 const tag = document.createElement('script');
 
@@ -25,7 +25,6 @@ const channels = [
 
 let currentChannel = 0;
 let player;
-
 
 const shuffleAndPlay = () => {
   setTimeout(() => {
@@ -87,3 +86,5 @@ global.onYouTubeIframeAPIReady = () => {
   document.title = channels[currentChannel].title;
   createPlayer(channels[currentChannel].url);
 };
+
+console.log(process.env.HOST);
