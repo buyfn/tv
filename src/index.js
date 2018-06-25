@@ -4,7 +4,6 @@ import { channels } from './channels.json';
 const HOST = process.env.HOST || null;
 
 const tag = document.createElement('script');
-
 tag.src = 'https://www.youtube.com/iframe_api';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -12,11 +11,16 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let currentChannel = 0;
 let player;
 
+const wrapper = document.getElementById('wrapper');
+
 const shuffleAndPlay = () => {
   setTimeout(() => {
     player.setShuffle({ shufflePlaylist: 1 });
     setTimeout(() => {
       player.playVideoAt(0);
+      setTimeout(() => {
+        wrapper.classList.toggle('hidden');
+      }, 100);
     }, 100);
   }, 1000);
 };
@@ -48,6 +52,7 @@ const playChannel = () => {
 };
 
 const switchChannel = (n) => {
+  wrapper.classList.toggle('hidden');
   if (n <= channels.length) {
     currentChannel = n - 1;
   }

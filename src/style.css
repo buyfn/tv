@@ -7,6 +7,10 @@ body {
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 #wrapper {
   position: absolute;
   top: 0;
@@ -21,24 +25,9 @@ body {
 }
 
 #overlay {
-  background-color: rgba(0, 0, 0, 1);
-
-  animation: fade 1s ease-in;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-@keyframes fade {
-  0% {
-    background-color: rgba(0, 0, 0, 1);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0);
-  }
 }
