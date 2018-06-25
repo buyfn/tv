@@ -1,4 +1,5 @@
 import './style.css';
+import { channels } from './channels.json';
 
 const HOST = process.env.HOST || null;
 
@@ -7,21 +8,6 @@ const tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-const channels = [
-  {
-    title: 'Music',
-    url: 'PLSZ1wOgDlKaC5IqiXrhIaTElxXKvXBI20',
-  },
-  {
-    title: 'Nerdy',
-    url: 'PLSZ1wOgDlKaCjrBEq1pZhkrKNuQ8ATCrt',
-  },
-  {
-    title: 'lul',
-    url: 'PLSZ1wOgDlKaCRCB5xwozf8JoWTQiv6o6w',
-  },
-];
 
 let currentChannel = 0;
 let player;
@@ -86,5 +72,3 @@ global.onYouTubeIframeAPIReady = () => {
   document.title = channels[currentChannel].title;
   createPlayer(channels[currentChannel].url);
 };
-
-console.log(process.env.HOST);
